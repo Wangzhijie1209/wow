@@ -1,5 +1,6 @@
 package com.example.myapplication.intent;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.myapplication.R;
 
@@ -43,10 +45,39 @@ public class FirstActivity extends AppCompatActivity {
 //                intent.setData(Uri.parse("http://www.baidu.com"));
 //                startActivity(intent);
 
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:10086"));
-                startActivity(intent);
+//                Intent intent = new Intent(Intent.ACTION_DIAL);
+//                intent.setData(Uri.parse("tel:10086"));
+//                startActivity(intent);
+
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                //在活动销毁的是很好能够返回一个结果给上一个活动
+                //第一个参数是intent
+                //第二个参数是请求码
+                startActivityForResult(intent, 1);
             }
         });
+    }
+
+    /**
+     *
+     * @param requestCode 启动活动时传入的请求码
+     * @param resultCode 返回数据时传入的处理结果
+     * @param data  携带着返回数据的Intent
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //检擦requestCode的值来判断数据来源
+        switch (requestCode) {
+            case 1:
+                //通过resultCode的值来判断处理结果是否成功
+                if (resultCode == RESULT_OK) {
+                    //处理数据
+                    String data_return = data.getStringExtra("data_return");
+                    Toast.makeText(this, data_return, Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default:
+        }
     }
 }
