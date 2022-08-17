@@ -3,6 +3,7 @@ package com.example.myapplication.recyclerview;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Bundle;
 import android.view.View;
@@ -22,9 +23,12 @@ public class RecyclerViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_view);
         initFruits();//初始化水果数据
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+//        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        
         FruitAdapter fruitAdapter = new FruitAdapter(fruitList);
         recyclerView.setAdapter(fruitAdapter);
     }
