@@ -29,6 +29,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
     /**
      * onCreateViewHolder()方法是用于创建ViewHolder实例的,我们在这个方法中将fruit_item布局加载进来,然后创建一个
      * ViewHolder实例,并把加载出来的布局传入到构造函数当中,最后将viewHolder的实例返回
+     *
      * @param parent
      * @param viewType
      * @return
@@ -43,6 +44,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
 
     /**
      * 绑定数据
+     *
      * @param holder
      * @param position
      */
@@ -55,6 +57,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
 
     /**
      * 用于告诉RecyclerView一共有多少子项,直接返回数据源的长度即可
+     *
      * @return
      */
     @Override
