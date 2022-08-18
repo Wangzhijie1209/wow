@@ -40,7 +40,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fruit_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
-        
+
         holder.image_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -12,6 +12,7 @@ import com.example.myapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class RecyclerViewActivity extends AppCompatActivity {
 
@@ -35,24 +36,34 @@ public class RecyclerViewActivity extends AppCompatActivity {
 
     private void initFruits() {
         for (int i = 0; i < 2; i++) {
-            Fruit kiwifruit = new Fruit("kiwifruit", R.drawable.kiwifruit);
+            Fruit kiwifruit = new Fruit(getRandomLengthName("kiwifruit"), R.drawable.kiwifruit);
             fruitList.add(kiwifruit);
-            Fruit litchi = new Fruit("litchi", R.drawable.litchi);
+            Fruit litchi = new Fruit(getRandomLengthName("litchi"), R.drawable.litchi);
             fruitList.add(litchi);
-            Fruit lemon = new Fruit("lemon", R.drawable.lemon);
+            Fruit lemon = new Fruit(getRandomLengthName("lemon"), R.drawable.lemon);
             fruitList.add(lemon);
-            Fruit mango = new Fruit("mango", R.drawable.mango);
+            Fruit mango = new Fruit(getRandomLengthName("mango"), R.drawable.mango);
             fruitList.add(mango);
-            Fruit mangosteen = new Fruit("mangosteen", R.drawable.mangosteen);
+            Fruit mangosteen = new Fruit(getRandomLengthName("mangosteen"), R.drawable.mangosteen);
             fruitList.add(mangosteen);
-            Fruit persimmon = new Fruit("persimmon", R.drawable.persimmon);
+            Fruit persimmon = new Fruit(getRandomLengthName("persimmon"), R.drawable.persimmon);
             fruitList.add(persimmon);
-            Fruit strawberry = new Fruit("strawberry", R.drawable.strawberry);
+            Fruit strawberry = new Fruit(getRandomLengthName("strawberry"), R.drawable.strawberry);
             fruitList.add(strawberry);
-            Fruit watermelon = new Fruit("watermelon", R.drawable.watermelon);
+            Fruit watermelon = new Fruit(getRandomLengthName("watermelon"), R.drawable.watermelon);
             fruitList.add(watermelon);
-            Fruit waxapple = new Fruit("waxapple", R.drawable.waxapple);
+            Fruit waxapple = new Fruit(getRandomLengthName("waxapple"), R.drawable.waxapple);
             fruitList.add(waxapple);
         }
+    }
+
+    private String getRandomLengthName(String name) {
+        Random random = new Random();
+        int length = random.nextInt(20) + 1;
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < length; i++) {
+            builder.append(name);
+        }
+        return builder.toString();
     }
 }
