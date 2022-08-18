@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.chat.utils.Hide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,5 +67,17 @@ public class ChatActivity extends AppCompatActivity {
         Msg msg2 = new Msg("This is Tom. Nice talking to you.", Msg.TYPE_RECEIVED);
         msgList.add(msg2);
     }
-    
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            //获得当前得到焦点的View.一般情况下就是EditText(特殊情况就是轨迹球或者实体案件回移动焦点)
+            View v = getCurrentFocus();
+
+            if (Hide.getInstance().isShowIdHideInput(v, ev)) {
+                Hide.getInstance().hideSoftInput(v.getWindowToken(), this);
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
 }
