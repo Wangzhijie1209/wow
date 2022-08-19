@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".fragment_package.Fragment_test_Activity"
+            android:name=".fragment_package.Interface_callback.callbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".fragment_package.test.ActivityToFragment"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,16 +22,17 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".fragment_package.Fragment_test_Activity"
+            android:exported="true"></activity>
+        <activity
             android:name=".activityresultsapi.BActivity"
             android:exported="false" />
         <activity
             android:name=".activityresultsapi.AActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".chat.ChatActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".recyclerview.RecyclerViewActivity"
             android:exported="true" />
