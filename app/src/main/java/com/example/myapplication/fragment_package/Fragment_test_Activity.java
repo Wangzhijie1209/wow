@@ -53,6 +53,12 @@ public class Fragment_test_Activity extends AppCompatActivity implements View.On
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.right_fragment,fragment);
+        //在fragment中模拟返回栈
+        //在事务提交之前调用了FragmentTransaction的addToBackStack()方法,它可以接收一个名字用于描述返回栈
+        //的状态,一般传入null即可
+        //现在按下back键,程序不会立即退出,而是先回到RightFragment界面 继续按下back键,RightFragment界面也会消失,
+        //再次按下Back键,程序才会退出
+        transaction.addToBackStack(null);
         transaction.commit();
     }
 }
