@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".fragment_package.Interface_callback.callbackActivity"
+            android:name=".brodcastssssss.dynamic_registration.BroadcastssActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,11 +19,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".fragment_package.test.ActivityToFragment"
+            android:name=".fragment_package.Interface_callback.callbackActivity"
             android:exported="true"/>
+
+        <activity
+            android:name=".fragment_package.test.ActivityToFragment"
+            android:exported="true" />
         <activity
             android:name=".fragment_package.Fragment_test_Activity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activityresultsapi.BActivity"
             android:exported="false" />
