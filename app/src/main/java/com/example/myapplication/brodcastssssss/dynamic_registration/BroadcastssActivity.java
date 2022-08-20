@@ -8,6 +8,12 @@ import android.os.Bundle;
 
 import com.example.myapplication.R;
 
+/**
+ * 在Android8.0以后已经不在支持静态广播了 因为各大三方应用利用广播进行保活,例如开机发出的广播,
+ * 三方应用利用这个广播自启动服务,偷偷的在后台跑,而封禁静态广播采用动态广播就可以保证只有应用在前台
+ * 时才能接收广播,然后进行相应的处理
+ */
+
 public class BroadcastssActivity extends AppCompatActivity {
 
     private LockScreenBroadcastReceiver receiver;
