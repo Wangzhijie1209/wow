@@ -3,6 +3,7 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,22 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name=".brodcastssssss.send_broadcast_receiver.SendBroadcast_ReceiverActivity"
+            android:name=".broadcast_study.static_registration.NormalBroadcastActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".brodcastssssss.dynamic_registration.MonitorNetworkStatusActivity"
-            android:exported="true">
 
-        </activity>
-        <activity
-            android:name=".brodcastssssss.dynamic_registration.BroadcastssActivity"
-            android:exported="true" />
         <activity
             android:name=".fragment_package.Interface_callback.callbackActivity"
             android:exported="true" />
@@ -68,11 +63,10 @@
             android:exported="true" />
 
         <receiver
-            android:name=".brodcastssssss.send_broadcast_receiver.MyBroadcastReceiver"
-            android:enabled="true"
+            android:name=".broadcast_study.static_registration.NormalReceiver"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.example.myapplication.brodcastssssss.MY_BROADCAST" />
+                <action android:name="com.example.myapplication.broadcast_study.NORMAL_ACTION" />
             </intent-filter>
         </receiver>
     </application>
