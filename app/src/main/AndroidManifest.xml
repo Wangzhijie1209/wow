@@ -11,18 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name="com.example.broadcasttest.orderly.OrderlyActivity"
-            android:exported="true">
+        <activity
+            android:name="com.example.broadcasttest.dynamic.ExampleActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.broadcasttest.normal.NormalActivity"
+            android:name="com.example.broadcasttest.dynamic.DynamicActivity"
             android:exported="true">
 
         </activity>
+        <activity
+            android:name="com.example.broadcasttest.orderly.OrderlyActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name="com.example.broadcasttest.normal.NormalActivity"
+            android:exported="true" />
         <activity
             android:name=".broadcast_study.static_registration.NormalBroadcastActivity"
             android:exported="true" />
@@ -73,7 +81,6 @@
                 <action android:name="com.example.myapplication.broadcast_study.NORMAL_ACTION" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name="com.example.broadcasttest.normal.NormalReceiver"
             android:exported="true">
@@ -81,7 +88,6 @@
                 <action android:name="com.example.broadcasttest.normal.receiver" />
             </intent-filter>
         </receiver>
-
         <receiver
             android:name="com.example.broadcasttest.orderly.OrderReceiver_1"
             android:exported="true">
@@ -89,8 +95,6 @@
                 <action android:name="com.example.broadcasttest.orderly.receiver" />
             </intent-filter>
         </receiver>
-
-
         <receiver
             android:name="com.example.broadcasttest.orderly.OrderReceiver_2"
             android:exported="true">
@@ -98,8 +102,6 @@
                 <action android:name="com.example.broadcasttest.orderly.receiver" />
             </intent-filter>
         </receiver>
-
-
         <receiver
             android:name="com.example.broadcasttest.orderly.OrderReceiver_3"
             android:exported="true">
