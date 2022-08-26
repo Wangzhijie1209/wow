@@ -12,20 +12,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name="com.example.broadcasttest.sort.localbroadcast.LocalBroadcastActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.broadcasttest.dynamic.ExampleActivity"
-            android:exported="true">
+            android:name="com.example.datastorage.filestore.FileOutputStreamActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.example.broadcasttest.dynamic.ExampleActivity"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name="com.example.broadcasttest.dynamic.DynamicActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name="com.example.broadcasttest.orderly.OrderlyActivity"
             android:exported="true" />
