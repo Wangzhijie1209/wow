@@ -3,6 +3,7 @@
     package="com.example.myapplication">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,20 +13,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
-            android:name="com.example.datastorage.filestore.FileOutputStreamActivity"
-            android:exported="true" >
+            android:name="com.example.datastorage.sp.TextsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.datastorage.sp.SpTextActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name="com.example.datastorage.sp.SharedPreferencesActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name="com.example.datastorage.filestore.FileOutputStreamActivity"
+            android:exported="true" />
         <activity
             android:name="com.example.broadcasttest.dynamic.ExampleActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name="com.example.broadcasttest.dynamic.DynamicActivity"
             android:exported="true" />
