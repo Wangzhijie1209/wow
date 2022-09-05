@@ -191,6 +191,10 @@ xxxhdpi          192*192
 4.提供一个静态的getContext()方法 在这里将刚才获取到的Context进行返回
 5.在AndroidManifest.xml文件的 <application>标签下 初始化该类
 
+使用Intent传递对象
+Serializable(序列化)方式: 表示将一个对象转换成可存储或可传输的状态,序列化后的对象可以在网络上进行传输,也可以存储到本地
+使用方式:只需要让一个类去实现Serializable这个接口就可以了  移步到 Person 类查看示例
+
 
 
 
