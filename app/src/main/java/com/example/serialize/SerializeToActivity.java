@@ -19,7 +19,8 @@ public class SerializeToActivity extends AppCompatActivity {
         setContentView(R.layout.activity_serialize_to);
         TextView serialize_TextView = findViewById(R.id.serialize_TextView);
         TextView serialize_TextView2 = findViewById(R.id.serialize_TextView2);
-        Person person = (Person) getIntent().getSerializableExtra("person_data");
+//        Person person = (Person) getIntent().getSerializableExtra("person_data");
+        Person person = (Person) getIntent().getParcelableExtra("person_data");
 
         Log.d("SerializeToActivity", "age= "+person.getAge()+"     name="+person.getName());
 
