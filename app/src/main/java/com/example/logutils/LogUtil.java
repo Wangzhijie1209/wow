@@ -5,7 +5,7 @@ import android.util.Log;
 /**
  * 控制日志的打印行为,比如让level等于BERBOSE就可以把所有的日志都打印出来,
  * 让level等于WARN就可以只打印警告以上级别的日志
- * 让level等于NOTHING就可以把所有日志都屏蔽掉  
+ * 让level等于NOTHING就可以把所有日志都屏蔽掉
  */
 public class LogUtil {
     public static final int VERBOSE = 1;
