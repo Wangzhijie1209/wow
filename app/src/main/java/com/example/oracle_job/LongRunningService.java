@@ -55,6 +55,24 @@ import androidx.annotation.Nullable;
  *
  * 如果你要求Alarm任务的执行时间必需准确无误,Android仍然提供了解决方案,使用AlarmManager的setExact()方法来替代set()方法,
  * 就基本上可以保证任务能够准确执行了
+ *
+ * Doze模式:在android6.0系统中,谷歌加入了一个全新的Doze模式,从而可以极大幅度地延长电池使用寿命。
+ * 但用户的设备是Android6.0或以上系统时,如果该设备未插接电源,处于静止状态(Android7.0中删除了这一条件),且屏幕关闭了一段时间
+ * 之后,就会进入到Doze模式.在Doze模式下,系统会对CPU，网络、Alarm等活动进行限制,从而延长了电池的使用寿命。当然,系统并不会一直
+ * 处于Doze模式,而是会间歇性地退出Doze模式一小段时间,在这段时间中,应用就可以去完成他们的同步操作,Alarm任务等.
+ * 随着设备进入Doze模式的时间越长,间歇性地退出Doze模式的时间间隔也会越长.因为如果设备长时间不使用的话,是没必要频繁退出Doze模式
+ * 来执行同步操作的。
+ * 在Doze模式下有哪些功能会收到限制?
+ * 网络访问被禁止
+ * 系统忽略唤醒CPU或者屏幕操作
+ * 系统不再执行WIFI扫描
+ * 系统不再执行同步服务
+ * Alarm任务将会在下次退出Doze模式的时候执行:也就是说,在Doze模式下,我们的Alarm任务将会变得不准时。当然,这在大多数情况下都是
+ * 合理的,因为只有当用户长时间不适用手机的时候才会进入Doze模式,通常在这种情况下对Alarm任务的准时性要求并没有那么高
+ * 如果有特殊的需求,要求Alarm任务即使在Doze模式下也必须正常执行,Android还是提供了解决方案.调用AlarmManager的setAndAllowWhileIdle()
+ * 或 setExactAndAllowWhileIdle()方法就能让定时任务即使在Doze模式下也能正常执行了,这两个方法的区别和set() setExact()方法之间的区别是一样的
+ *
+ *
  */
 //实现一个长时间在后台定时运行的服务
 public class LongRunningService extends Service {
