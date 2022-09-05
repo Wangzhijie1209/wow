@@ -183,7 +183,13 @@ xxhdpi           144*144
 xxxhdpi          192*192
 
 
-
+开发小技巧:
+全局获取Context的技巧:
+1.首先创建一个自己的MyApplication,继承自Application 然后重写父类的onCreate()方法
+2.定义一个Context
+3.通过调用getApplicationContext()方法得到了一个应用程序级别的Context
+4.提供一个静态的getContext()方法 在这里将刚才获取到的Context进行返回
+5.在AndroidManifest.xml文件的 <application>标签下 初始化该类
 
 
 
