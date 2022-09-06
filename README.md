@@ -195,7 +195,37 @@ xxxhdpi          192*192
 Serializable(序列化)方式: 表示将一个对象转换成可存储或可传输的状态,序列化后的对象可以在网络上进行传输,也可以存储到本地
 使用方式:只需要让一个类去实现Serializable这个接口就可以了  移步到 Person 类查看示例
 
+多窗口模式:将A B 两个项目运行到手机上然后启动A程序,这时logcat中的打印日志为 A:onCreate onStart onResume 三个方法会
+依次得到执行 
+然后进入到多窗口模式: 这时会执行:onPause onStop onDestroy onCreate onStart onResume onPause
+你会发现,A项目中的Activity经历了一个重新创建的过程,其实这个是正常现象,因为进入多窗口模式后活动的大小发生了比较大的变化,
+此时默认是会重新创建活动的.除此之外,像横竖屏切换也是会重新创建活动的,紧接着进入多窗口模式A项目会变成暂停状态onPause
+然后选中B项目,此时 onCreate onStart onResume 方法依次得到了执行,说明现在B项目变成了运行状态。
+接下来我们可以随意操作一下A项目, 那么B项目会先执行onPause()方法,A项目onResume()方法得到了执行
+
+在多窗口模式下,用户仍然可以看到处于暂停状态的应用,像视频播放器之类的应用在此时就应该能继续播放视频才对.因此,我们最好不要在
+活动的onPause()中去处理视频播放器的暂停逻辑,而是应该在哦那Stop()方法中去处理,并且在onStart()方法恢复视频的播放
+
+针对进入多窗口模式时活动会被重新创建,如果想要改变这一默认行为,可以在AndroidManifest.xml中对活动进行配置:
+android:configChanges="orientation|keyboardHidden|screenSize|screenLayout"
+加入这行配置之后,不管是进入到多窗口模式,还是横竖屏切换,活动都不会被重新创建,而是会将屏幕发生变化的事件通知
+到Activity的onConfigurationChanged()方法当中,因此 如果你像在屏幕发生变化的时候进行相应的逻辑处理,
+那么在活动中重写onConfigurationChanged()方法即可
+
+禁用多窗口模式:
+如果不希望自己的应用能够在多窗口模式下运行,那么就可以把这个功能关闭掉,只需要在AndroidManifest.xml的<application>或
+<activity>标签中加入如下属性即可:
+android:resizeableActivity=["true" | "false"]
+其中,true表示应用支持多窗口模式,false表示应用不支持多窗口模式,如果不配置这个属性,那么默认值为true
+虽然android:resizeableActivity=["true" | "false"] 这个属性的用法很简单,但是它还存在着一个问题,就是这个属性只有
+当项目的tagetSdkVersion指定成24或者更高的时候才有用,否则这个属性是无效的,
+针对这种情况,还有一种解决方案:Android规定,如果项目指定的targetSdkVersion低于24,并且活动是不允许横竖屏切换的,那么
+该应用也将不支持多窗口模式.默认情况下,我们的应用都是可以随着手机的旋转自由的横竖屏切换的,如果想要让应用不允许横竖屏切换,
+那么就需要在AndroidManifest.xml的<activity>标签中加入如下配置:
+android:screenOrientation=["portrait" | "landscape"] 其中 portrait表示活动只支持竖屏,landscape表示活动只
+支持横屏 只要我们将screenOrientation设置为portrait 说明我们已经成功禁用多窗口模式了
 
 
 
-        
+
+       
